@@ -7,11 +7,9 @@
   <script>
    function removeLoader() {
     const element = document.querySelector('.arjs-loader')
-    //console.log('ciao',element)
     if(element) {element.parentElement.removeChild(element)}
   }
   setTimeout(removeLoader,5000)
-  //window.removeLoader = removeLoader
   </script>
 
 
@@ -52,7 +50,7 @@
       renderer="gammaOutput: true, physicallyCorrectLights: true"
     >
       <a-assets>
-        <!--<audio id="redGiant" src="./assets/redGiant.mp3"></audio>-->
+        <audio id="redGiant" src="./assets/redGiant.mp3"></audio>
       </a-assets>
 
       <a-sound src="#redGiant" autoplay="true"></a-sound>
