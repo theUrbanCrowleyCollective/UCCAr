@@ -4,7 +4,47 @@
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
+  <script>
+   function removeLoader() {
+    const element = document.querySelector('.arjs-loader')
+    //console.log('ciao',element)
+    if(element) {element.parentElement.removeChild(element)}
+  }
+  setTimeout(removeLoader,5000)
+  //window.removeLoader = removeLoader
+  </script>
+
+
+  <style>
+    .arjs-loader {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .arjs-loader div {
+      text-align: bottom ;
+      font-size: 1.25em;
+      color: white;
+    }
+  </style>
+
   <body style="margin : 0px; overflow: hidden;">
+
+    <div class="arjs-loader">
+      <div>Loading... 
+        <br>Point the camera to the marker...
+        <br>And touch the screen...
+      </div>
+    </div>
+
     <a-scene
       embedded
       arjs
@@ -12,7 +52,7 @@
       renderer="gammaOutput: true, physicallyCorrectLights: true"
     >
       <a-assets>
-        <audio id="redGiant" src="./assets/redGiant.mp3"></audio>
+        <!--<audio id="redGiant" src="./assets/redGiant.mp3"></audio>-->
       </a-assets>
 
       <a-sound src="#redGiant" autoplay="true"></a-sound>
@@ -20,7 +60,7 @@
       <a-marker preset="hiro">
         <a-entity
           position="0 0 0"
-          scale="3 3 3"
+          scale="1 1 1"
           gltf-model="./assets/Bake06.glb"
           animation-mixer
         ></a-entity>
